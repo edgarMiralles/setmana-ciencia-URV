@@ -1,3 +1,4 @@
+//Illya Kunakh
 import java.util.Date;
 
 public class Visites extends Activitats{
@@ -7,7 +8,7 @@ public class Visites extends Activitats{
     private boolean adaptatCegos;
 
     public Visites(int codi, String nom, String lloc, int codiPostal, Date data, String nomEntitat, String tipusEdifici, String serveis, boolean adaptatCegos) {
-        super(codi, nom, lloc, codiPostal, data, nomEntitat);
+        super(nom, lloc, codiPostal, data, nomEntitat);
         this.tipusEdifici = tipusEdifici;
         this.serveis = serveis;
         this.adaptatCegos = adaptatCegos;

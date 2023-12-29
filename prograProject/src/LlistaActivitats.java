@@ -1,3 +1,4 @@
+//Illya Kunakh
 public class LlistaActivitats {
     
     private Activitats[] llista;
@@ -16,11 +17,15 @@ public class LlistaActivitats {
     }
     
     public void afegirActivitat(Activitats activitat) {
-        llista[numActivitats] = activitat;
-        numActivitats++;
+        if (numActivitats < llista.length) {
+            llista[numActivitats] = activitat.copia();
+            numActivitats++;
+        } else {
+            System.out.println("No es pogen afegir mes activitats");
+        }
     }
     
-    public void eliminarActivitat(int codi) {
+    public void eliminarActivitat(String codi) {
         int pos = 0;
         boolean trobat = false;
         while (pos < numActivitats && !trobat) {
@@ -37,12 +42,16 @@ public class LlistaActivitats {
             numActivitats--;
         }
     }
+
+    public int getNumActivitats() {
+        return numActivitats;
+    }
     
-    public Activitats cercarActivitat(int codi) {
+    public Activitats cercarActivitat(String codi) {
         int pos = 0;
         boolean trobat = false;
         while (pos < numActivitats && !trobat) {
-            if (llista[pos].getCodi() == codi) {
+            if (llista[pos].getCodi().equalsIgnoreCase(codi)) {
                 trobat = true;
             } else {
                 pos++;
@@ -55,11 +64,11 @@ public class LlistaActivitats {
         }
     }
     
-    public void modificarActivitat(int codi, Activitats a) {
+    public void modificarActivitat(String codi, Activitats a) {
         int pos = 0;
         boolean trobat = false;
         while (pos < numActivitats && !trobat) {
-            if (llista[pos].getCodi() == codi) {
+            if (llista[pos].getCodi().equalsIgnoreCase(codi)) {
                 trobat = true;
             } else {
                 pos++;
@@ -76,6 +85,15 @@ public class LlistaActivitats {
             llistaActivitats += llista[i].toString() + "\n";
         }
         return llistaActivitats;
+    }
+
+
+    public LlistaActivitats copia() {
+        LlistaActivitats copia = new LlistaActivitats(this.llista.length);
+        for (int i = 0; i < numActivitats; i++) {
+            copia.afegirActivitat(llista[i]);
+        }
+        return copia;
     }
     
 

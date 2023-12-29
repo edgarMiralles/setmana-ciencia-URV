@@ -1,3 +1,4 @@
+//Illya Kunakh
 import java.util.Date;
 
 public class Xerrades extends Activitats{
@@ -5,7 +6,7 @@ public class Xerrades extends Activitats{
     private String nomPersona;
     
     public Xerrades(int codi, String nom, String lloc, int codiPostal, Date data, String nomEntitat, String nomPersona) {
-        super(codi, nomPersona, nomPersona, codi, data, nomPersona); // Llama al constructor de Activitat
+        super(nomPersona, nomPersona, codi, data, nomPersona); // Llama al constructor de Activitat
         this.nomPersona = nomPersona;
     }
     
