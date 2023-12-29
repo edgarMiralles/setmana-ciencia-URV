@@ -1,21 +1,15 @@
 public class Reserves {
     private String usuari;
-    private int codi_reserva, codi_taller,satisfaccio, places_ocupades=1;
-    private Tallers taller = null;
+    private int codi_reserva, codi_taller,satisfaccio;
 
-
-    public Reserves (int c_reserva,String usuari, int c_taller, LlistaActivitats llistaActiv){
-        taller = llistaActiv.getTaller(c_taller);
-        if (places_ocupades < taller.getCapacitat()) {
+    public Reserves (int c_reserva,String usuari, int c_taller){
             codi_reserva = c_reserva;
             codi_taller = c_taller;
             this.usuari = usuari;
-            places_ocupades++;
-        }
     }
     
     public Reserves copia(){         
-        return (new Reserves(codi_reserva, usuari, codi_taller, taller));
+        return (new Reserves(codi_reserva, usuari, codi_taller));
     }
 
     public String getUsuari() {
@@ -47,45 +41,11 @@ public class Reserves {
         this.codi_taller = codi_taller;
     }
 
-
     public int getSatisfaccio() {
         return satisfaccio;
     }
 
-
     public void setSatisfaccio(int satisfaccio) {
         this.satisfaccio = satisfaccio;
     }
-
-
-    public int getPlaces_ocupades() {
-        return places_ocupades;
-    }
-
-
-    public void setPlaces_ocupades(int places_ocupades) {
-        this.places_ocupades = places_ocupades;
-    }
-
-
-    public int getPuntuacio() {
-        return taller.getPuntuacio();
-    }
-
-
-    public void setPuntuacio(int puntuacio) {
-        taller.setPuntuacio(puntuacio);
-        taller.setNPersones(places_ocupades);
-    }
-
-
-    public Tallers getTaller() {
-        return taller;
-    }
-
-
-    public void setTaller(Tallers taller) {
-        this.taller = taller;
-    }
-
 }
