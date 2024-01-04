@@ -1,5 +1,5 @@
 //Illya Kunakh
-import java.util.Date;
+import java.time.LocalDate;
 
 public class Visites extends Activitats{
     
@@ -7,7 +7,7 @@ public class Visites extends Activitats{
     private String serveis;
     private boolean adaptatCegos;
 
-    public Visites(String nom, String lloc, int codiPostal, Date data, String nomEntitat, String tipusEdifici, String serveis, boolean adaptatCegos) {
+    public Visites(String nom, String lloc, int codiPostal, LocalDate data, String nomEntitat, String tipusEdifici, String serveis, boolean adaptatCegos) {
         super(nom, lloc, codiPostal, data, nomEntitat);
         this.tipusEdifici = tipusEdifici;
         this.serveis = serveis;

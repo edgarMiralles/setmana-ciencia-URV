@@ -1,5 +1,5 @@
 //Illya Kunakh
-import java.util.Date;
+import java.time.LocalDate;
 
 //No es pot crear directament l'objecte activitat, solament subclasses
 public abstract class Activitats {
@@ -8,12 +8,12 @@ public abstract class Activitats {
 	protected String nom;
 	protected String lloc;
 	protected int codiPostal;
-	protected Date data;
+	protected LocalDate data;
 	protected String nomEntitat;
 
 	private static int numeroCodi = 100;
 	
-	public Activitats(String nom, String lloc, int codiPostal, Date data, String nomEntitat) {
+	public Activitats(String nom, String lloc, int codiPostal, LocalDate data, String nomEntitat) {
 		this.nom = nom;
 		this.lloc = lloc;
 		this.codiPostal = codiPostal;
@@ -45,7 +45,7 @@ public abstract class Activitats {
 		return codiPostal;
 	}
 	
-	public Date getData() {
+	public LocalDate getData() {
 		return data;
 	}
 	
