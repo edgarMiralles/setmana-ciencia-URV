@@ -7,7 +7,7 @@ public class Visites extends Activitats{
     private String serveis;
     private boolean adaptatCegos;
 
-    public Visites(int codi, String nom, String lloc, int codiPostal, Date data, String nomEntitat, String tipusEdifici, String serveis, boolean adaptatCegos) {
+    public Visites(String nom, String lloc, int codiPostal, Date data, String nomEntitat, String tipusEdifici, String serveis, boolean adaptatCegos) {
         super(nom, lloc, codiPostal, data, nomEntitat);
         this.tipusEdifici = tipusEdifici;
         this.serveis = serveis;
@@ -38,8 +38,7 @@ public class Visites extends Activitats{
         this.adaptatCegos = adaptatCegos;
     }
 
-    @Override
     public String toString() {
-        return "Visita{" + "tipusEdifici=" + tipusEdifici + ", serveis=" + serveis + ", adaptatCegos=" + adaptatCegos + '}';
+        return super.toString() + ", Tipus Edifici: " + tipusEdifici + ", Serveis: " + serveis + ", Adaptat Cegos: " + adaptatCegos;
     }
 }

@@ -52,13 +52,13 @@ public abstract class Activitats {
 	public String getNomEntitat() {
 		return nomEntitat;
 	}
-	
+
 	public String toString() {
 		return "Codi: " + codi + "\nNom: " + nom + "\nLloc: " + lloc + "\nCodi Postal: " + codiPostal + "\nData: " + data + "\nNom Entitat: " + nomEntitat;
 	}
 
 	public Activitats copia() {
-		Activitats copia = new Activitats(this.nom, this.lloc, this.codiPostal, new Date(this.data.getTime()), this.nomEntitat);
+		Activitats copia = new ActivitatsCopia(this.nom, this.lloc, this.codiPostal, this.data, this.nomEntitat);
 		copia.setCodi(this.codi);
 		return copia;
 	}

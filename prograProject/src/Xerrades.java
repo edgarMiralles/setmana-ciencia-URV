@@ -5,8 +5,8 @@ public class Xerrades extends Activitats{
     
     private String nomPersona;
     
-    public Xerrades(int codi, String nom, String lloc, int codiPostal, Date data, String nomEntitat, String nomPersona) {
-        super(nomPersona, nomPersona, codi, data, nomPersona); // Llama al constructor de Activitat
+    public Xerrades(String nom, String lloc, int codiPostal, Date data, String nomEntitat, String nomPersona) {
+        super(nom, lloc, codiPostal, data, nomEntitat); // Llama al constructor de Activitat
         this.nomPersona = nomPersona;
     }
     
@@ -17,8 +17,9 @@ public class Xerrades extends Activitats{
     public void setNomPersona(String nomPersona) {
         this.nomPersona = nomPersona;
     }
-    
+
     public String toString() {
-        return "Xerrada{" + "nomPersona=" + nomPersona + '}';
+        return super.toString() + ", NomPersona: " + nomPersona;
     }
+    
 }
