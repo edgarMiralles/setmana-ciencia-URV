@@ -1,6 +1,8 @@
+//Kevin Sánchez Ramírez
 public class Reserves {
     private String usuari;
     private int codi_reserva, codi_taller,satisfaccio;
+    private Tallers taller;
 
     public Reserves (int c_reserva,String usuari, int c_taller){
             codi_reserva = c_reserva;
@@ -45,7 +47,12 @@ public class Reserves {
         return satisfaccio;
     }
 
-    public void setSatisfaccio(int satisfaccio) {
-        this.satisfaccio = satisfaccio;
+    public void setSatisfaccio(int valoracio) {
+        if (valoracio >= 0 && valoracio <= 10) {
+            satisfaccio = valoracio;
+            taller.actualizarPuntuacion(valoracio);
+        } else {
+            System.out.println("La valoració ha d'estar en el rang de 0 a 10.");
+        }
     }
 }
