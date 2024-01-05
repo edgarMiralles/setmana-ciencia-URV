@@ -1,6 +1,8 @@
-import java.util.Scanner;
+import java.io.*;
+import java.time.LocalDate;
+import java.util.*;
 
-public class UsaSetmana {
+public class AppConsola{
     public static void main(String[] args){ 
         //carregar fitxers i inicialitzar llistes
 
@@ -115,7 +117,7 @@ public class UsaSetmana {
                 String lloc = dadesFinals[1];
                 int codiPostal = Integer.parseInt(dadesFinals[2]);
                 String[] dataInici = dadesFinals[3].split("/");
-                Date data = new Date((Integer.parseInt(dataInici[0])-1900),(Integer.parseInt(dataInici[1])-1),Integer.parseInt(dataInici[2]));
+                LocalDate data = new LocalDate((Integer.parseInt(dataInici[0])-1900),(Integer.parseInt(dataInici[1])-1),Integer.parseInt(dataInici[2]));
                 String nomEntitat = dadesFinals[4];
                 try{
                     int durada = Integer.parseInt(dadesFinals[5]);
