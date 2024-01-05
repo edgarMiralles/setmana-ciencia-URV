@@ -1,11 +1,12 @@
 import java.io.*;
 import java.time.LocalDate;
+import java.time.format.DateTimeParseException;
 import java.util.*;
 
 public class AppConsola{
     public static void main(String[] args){ 
         //carregar fitxers i inicialitzar llistes
-
+        LlistaActivitats llistaActivitats, Llistadiadeterminat;
         Scanner teclat = new Scanner(System.in);
         int opcio;
         do {
@@ -21,7 +22,12 @@ public class AppConsola{
 
                     break;
                 case 3:
-                    
+                    System.out.println("Introdueixi el dia (AAAA-MM-DD) del que vol guardar la llista d'activitats:");
+                    try{
+                    Llistadiadeterminat = llistaDia(LocalDate.parse(teclat.next()), llistaActivitats);
+                    }catch(DateTimeParseException e){
+                        System.out.println("Format de data incorrecte. S'ha de fer servir el format (AAAA-MM-DD).");
+                    }
                     break;
                 case 4:
                 case 5:
@@ -144,5 +150,14 @@ public class AppConsola{
             System.out.println("Un altre error");
         }
 
+    }
+    private static LlistaActivitats llistaDia(LocalDate dia, LlistaActivitats llista){
+        LlistaActivitats aux = new LlistaActivitats(llista.getNumActivitats());
+        for (int i = 0; i < llista.getNumActivitats(); i++) {
+            if ((dia.compareTo(llista.getData(i))) == 0) {
+                aux.afegirActivitat(llista.getActivitat(i));
+            }
+        }
+        return aux;
     }    
 }
