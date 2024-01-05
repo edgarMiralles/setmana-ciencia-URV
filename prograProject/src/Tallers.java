@@ -27,6 +27,9 @@ public class Tallers extends Activitats {
         return (capacitat - (reserves.getPlacesOcupades()));
     }
 
+    public int getPlacesOcupades(){
+        return reserves.getPlacesOcupades();
+    }
     public void setDurada(int durada) {
         this.durada = durada;
     }
