@@ -1,4 +1,7 @@
 //Illya Kunakh
+
+import java.time.LocalDate;
+
 public class LlistaActivitats {
     
     private Activitats[] llista;
@@ -86,8 +89,12 @@ public class LlistaActivitats {
         }
         return llistaActivitats;
     }
-
-
+    public LocalDate getData (int posicio){
+        return (llista[posicio].getData());
+    }
+    public Activitats getActivitat (int posicio){
+        return (llista[posicio].copia());
+    }
     public LlistaActivitats copia() {
         LlistaActivitats copia = new LlistaActivitats(this.llista.length);
         for (int i = 0; i < numActivitats; i++) {
