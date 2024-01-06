@@ -7,6 +7,8 @@ public class LlistaReserves {
         if (num > 0) {
             LlistaReserva = new Reserves[num];
             nElem = 0;
+        }else{
+            System.out.println("Llongitud de llista incorrecta");
         }
     }
     

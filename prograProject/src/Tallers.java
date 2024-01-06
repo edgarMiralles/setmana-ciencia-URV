@@ -47,4 +47,9 @@ public class Tallers extends Activitats {
     public void afegirReserva(String usuari){
         reserves.afegirReserva(usuari, super.getCodi(), this);
     }
+    public Tallers getTaller(String codiTaller){
+        if (codiTaller.equalsIgnoreCase(super.getCodi())) {
+            return this;
+        }else return null;   
+    }
 }

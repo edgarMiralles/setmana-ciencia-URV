@@ -95,6 +95,16 @@ public class LlistaActivitats {
     public Activitats getActivitat (int posicio){
         return (llista[posicio].copia());
     }
+    public Tallers getTaller(String codiTaller){
+        for (int i = 0; i < llista.length; i++) {
+            if (llista[i] instanceof Tallers) {
+            if ((Tallers)llista[i].getTaller(codiTaller)) {
+                
+            }
+            }
+        } 
+        return null;
+    }
     public LlistaActivitats copia() {
         LlistaActivitats copia = new LlistaActivitats(this.llista.length);
         for (int i = 0; i < numActivitats; i++) {
