@@ -7,6 +7,8 @@ public class AppConsola{
     public static void main(String[] args){ 
         //carregar fitxers i inicialitzar llistes
         LlistaActivitats llistaActivitats, Llistadiadeterminat;
+        LlistaUsuaris llistaUsuaris;
+        LlistaTallers llistaTallers;
         Scanner teclat = new Scanner(System.in);
         int opcio;
         do {
@@ -32,6 +34,17 @@ public class AppConsola{
                 case 4:
                 case 5:
                 case 6:
+                    try {
+                        String nomUsuari, codiTaller;
+                        System.out.println("Introdueix el codi del taller al que es vol inscriure");
+                        codiTaller = teclat.next();
+                        System.out.println("Introdueixi l'alies de l'usuari que es vol inscriure");
+                        nomUsuari = teclat.next();
+                        menu6(nomUsuari, codiTaller, llistaTallers);
+                    } catch (InputMismatchException e) {
+                        System.out.println("S'ha d'introduir cadenes de caracter per al codi i l'alies");
+                    }
+                    
                 case 7:
                 case 8:
                 case 9:
@@ -160,4 +173,18 @@ public class AppConsola{
         }
         return aux;
     }    
+
+    private static void menu6(String nomUsuari, String codiTaller, LlistaTallers llista) {
+        try {
+            Tallers taller = llista.getTaller(codiTaller);
+            if (taller.getCapacitat() >= 1) {
+                taller.afegirReserva(nomUsuari);
+            } else {
+                System.out.println("El taller no te plaçes disponibles");
+            }
+        } catch (NullPointerException e) {
+            System.out.println("El taller amb el codi " + codiTaller + " no es troba en la llista.");
+        }
+    }
+    
 }
