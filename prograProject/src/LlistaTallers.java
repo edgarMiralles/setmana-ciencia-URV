@@ -1,3 +1,4 @@
+//Kevin Sánchez Ramírez
 public class LlistaTallers extends LlistaActivitats{
     public LlistaTallers(int elements){
         super(elements);
