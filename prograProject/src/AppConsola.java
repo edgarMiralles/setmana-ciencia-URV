@@ -6,9 +6,11 @@ import java.util.*;
 public class AppConsola{
     public static void main(String[] args){ 
         //carregar fitxers i inicialitzar llistes
-        LlistaActivitats llistaActivitats, Llistadiadeterminat;
-        LlistaUsuaris llistaUsuaris;
-        LlistaTallers llistaTallers;
+        LlistaActivitats llistaActivitats=null; 
+        LlistaActivitats Llistadiadeterminat=null;
+        LlistaUsuaris llistaUsuaris=null;
+        LlistaTallers llistaTallers=null;
+        Usuaris UsuariMesTallers;
         Scanner teclat = new Scanner(System.in);
         int opcio;
         do {
@@ -40,13 +42,20 @@ public class AppConsola{
                         codiTaller = teclat.next();
                         System.out.println("Introdueixi l'alies de l'usuari que es vol inscriure");
                         nomUsuari = teclat.next();
-                        menu6(nomUsuari, codiTaller, llistaTallers);
+                        menu6(nomUsuari, codiTaller, llistaTallers, llistaUsuaris);
                     } catch (InputMismatchException e) {
                         System.out.println("S'ha d'introduir cadenes de caracter per al codi i l'alies");
                     }
                     
                 case 7:
                 case 8:
+                    try {
+                        UsuariMesTallers = menu8(llistaUsuaris);
+                        System.out.println("L'usuari inscrit a més tallers és el següent");
+                        System.out.println(UsuariMesTallers);
+                    } catch (NullPointerException e) {
+                        System.out.println("No hi ha cap usuari inscrit a cap taller o s'ha produït una excepció de punter nul.");
+                    }
                 case 9:
                 case 10:
                 case 11:
@@ -174,17 +183,30 @@ public class AppConsola{
         return aux;
     }    
 
-    private static void menu6(String nomUsuari, String codiTaller, LlistaTallers llista) {
+    private static void menu6(String nomUsuari, String codiTaller, LlistaTallers llista, LlistaUsuaris llistaUsuaris) {
         try {
             Tallers taller = llista.getTaller(codiTaller);
             if (taller.getCapacitat() >= 1) {
-                taller.afegirReserva(nomUsuari);
+                taller.afegirReserva(nomUsuari);    //Fem la reserva
+                llistaUsuaris.afegirApuntat(nomUsuari); //Augmentem el numero de tallers als que s'apuntat l'usuari
             } else {
                 System.out.println("El taller no te plaçes disponibles");
             }
         } catch (NullPointerException e) {
             System.out.println("El taller amb el codi " + codiTaller + " no es troba en la llista.");
         }
+    }
+    private static Usuaris menu8(LlistaUsuaris llistaUsuaris){
+        int max = 0;
+        Usuaris UsuariMesTallers=null;
+        for (int i = 0; i < llistaUsuaris.getNumUsuaris(); i++) {
+            if (llistaUsuaris.getNTallers(llistaUsuaris.getAliesLlista(i)) > max) {
+                UsuariMesTallers = llistaUsuaris.getUsuari(llistaUsuaris.getAliesLlista(i));
+                max = llistaUsuaris.getNTallers(llistaUsuaris.getAliesLlista(i));
+            }
+        }
+        return UsuariMesTallers;
+
     }
     
 }

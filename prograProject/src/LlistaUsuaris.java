@@ -58,7 +58,32 @@ public class LlistaUsuaris {
             LlistaUsuari[pos].setCodiPostal(codiPostal);
         }
     }
-
+    public void afegirApuntat(String nomUsuari){
+        for (int i = 0; i < nElem; i++) {
+         if (LlistaUsuari[i].getAlies().equalsIgnoreCase(nomUsuari)) {
+            LlistaUsuari[i].afegirApuntat();            
+         }   
+        }
+    }
+    public int getNTallers(String nomUsuari){
+        for (int i = 0; i < nElem; i++) {
+            if (LlistaUsuari[i].getAlies().equalsIgnoreCase(nomUsuari)) {
+               return (LlistaUsuari[i].getTallersapuntats());
+            }
+        }
+        return 0;
+    }
+    public int getNumUsuaris(){
+        return nElem;
+    }
+    public Usuaris getUsuari(String nomUsuari){
+        for (int i = 0; i < nElem; i++) {
+            if (LlistaUsuari[i].getAlies().equalsIgnoreCase(nomUsuari)) {
+                return LlistaUsuari[i].copia();
+            }
+        }
+        return null;
+    }
     public LlistaUsuaris copiaLlista(){
         LlistaUsuaris aux = new LlistaUsuaris(nElem);
         for (int i = 0; i < nElem; i++) {
