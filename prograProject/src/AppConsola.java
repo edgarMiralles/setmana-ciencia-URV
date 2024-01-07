@@ -51,14 +51,17 @@ public class AppConsola{
                 case 8:
                     try {
                         UsuariMesTallers = menu8(llistaUsuaris);
-                        System.out.println("L'usuari inscrit a més tallers és el següent");
-                        System.out.println(UsuariMesTallers);
+                        if (UsuariMesTallers != null) {
+                            System.out.println("L'usuari inscrit a més tallers és el següent");
+                            System.out.println(UsuariMesTallers);
+                        }  
                     } catch (NullPointerException e) {
                         System.out.println("No hi ha cap usuari inscrit a cap taller o s'ha produït una excepció de punter nul.");
                     }
                 case 9:
                 case 10:
                 case 11:
+                        menu11(llistaTallers);
                 case 12:
                 case 13:
                 case 14:
@@ -207,6 +210,19 @@ public class AppConsola{
         }
         return UsuariMesTallers;
 
+    }
+    private static Tallers menu11(LlistaTallers llistaTallers){
+        Tallers tallerExit=null; //Taller amb més èxit d'ocupació
+        Tallers aux;
+        float max = 0; //Indica el percentatge d'ocupació en relació a la capacitat
+        for (int i = 0; i < llistaTallers.getNumActivitats(); i++) {
+            aux = llistaTallers.getPTallers(i);
+            if ((aux.getCapacitat()/aux.getPlacesOcupades()) > max) {
+                max = aux.getCapacitat()/aux.getPlacesOcupades();
+                tallerExit = (Tallers)aux.copia();
+            }
+        }
+        return tallerExit;
     }
     
 }
