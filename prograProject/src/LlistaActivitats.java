@@ -89,9 +89,11 @@ public class LlistaActivitats {
         }
         return llistaActivitats;
     }
+
     public LocalDate getData (int posicio){
         return (llista[posicio].getData());
     }
+    
     public Activitats getActivitat (int posicio){
         return (llista[posicio].copia());
     }
