@@ -19,10 +19,21 @@ public class AppConsola{
             teclat.nextLine();
 
             switch (opcio) {
-                case 1:
+                case 1: 
+                    for(int i = 0; i < llistaActivitats.getNumActivitats(); i++){
+                        System.out.println(llistaActivitats.getActivitat(i).toString());
+                    }
                     
                     break;
-                case 2:
+                case 2: 
+                    System.out.println("Introdueixi el nom de l'entitat de la que vol mostrar les activitats:");
+                    String nomEntitat = teclat.nextLine();
+                    for(int i = 0; i < llistaActivitats.getNumActivitats(); i++){
+                        if(llistaActivitats.getActivitat(i).getNomEntitat().equalsIgnoreCase(nomEntitat)){
+                            System.out.println(llistaActivitats.getActivitat(i).toString());
+                        }
+                    }
+                    
 
                     break;
                 case 3:
@@ -34,7 +45,42 @@ public class AppConsola{
                     }
                     break;
                 case 4:
-                case 5:
+                case 5://Afegir una nova activitat a la LListaActivitats
+                    System.out.println("Introdueixi el nom de l'activitat:");
+                    String nom = teclat.nextLine();
+                    System.out.println("Introdueixi el lloc de l'activitat:");
+                    String lloc = teclat.nextLine();
+                    System.out.println("Introdueixi el codi postal de l'activitat:");
+                    int codiPostal = teclat.nextInt();
+                    teclat.nextLine();
+                    System.out.println("Introdueixi la data de l'activitat (AAAA-MM-DD):");
+                    LocalDate data = LocalDate.parse(teclat.nextLine());
+                    System.out.println("Introdueixi el nom de l'entitat que organitza l'activitat:");
+                    String nomEntitat2 = teclat.nextLine();
+                    System.out.println("Introdueixi el tipus d'activitat (Taller, Visita o Xerrada):");
+                    String tipus = teclat.nextLine();
+                    if(tipus.equalsIgnoreCase("Taller")){
+                        System.out.println("Introdueixi la durada del taller:");
+                        int durada = teclat.nextInt();
+                        System.out.println("Introdueixi la capacitat del taller:");
+                        int capacitat = teclat.nextInt();
+                        Tallers taller = new Tallers(nom,lloc,codiPostal,data,nomEntitat2,durada,capacitat);
+                        llistaActivitats.afegirActivitat(taller);
+                        llistaTallers.afegirActivitat(taller);
+                    }else if(tipus.equalsIgnoreCase("Visita")){
+                        System.out.println("Introdueixi el lloc a visitar:");
+                        String llocVisita = teclat.nextLine();
+                        System.out.println("Introdueixi els serveis que s'ofereixen:");
+                        String serveis = teclat.nextLine();
+                        System.out.println("Introdueixi si està adaptat per a cegos (true o false):");
+                        boolean adaptatCegos = teclat.nextBoolean();
+                        Visites visita = new Visites(nom,lloc,codiPostal,data,nomEntitat2,llocVisita,serveis,adaptatCegos);
+                        llistaActivitats.afegirActivitat(visita);
+                    }else if(tipus.equalsIgnoreCase("Xerrada")){
+                        System.out.println("Introdueixi el nom de la persona que farà la xerrada:");
+                        String nomPersona = teclat.nextLine();
+                        Xerrades xerrada = new Xerrades(nom,lloc,codiPostal,data,nomEntitat2,nomPersona);
+                        llistaActivitats.afegirActivitat(xerrada);}                       
                 case 6:
                     try {
                         String nomUsuari, codiTaller;
@@ -58,7 +104,22 @@ public class AppConsola{
                     } catch (NullPointerException e) {
                         System.out.println("No hi ha cap usuari inscrit a cap taller o s'ha produït una excepció de punter nul.");
                     }
-                case 9:
+                case 9: 
+                    try {
+                        String codiTaller;
+                        int puntuacio;
+                        System.out.println("Introdueix el codi del taller al que es vol posar una puntuació");
+                        codiTaller = teclat.next();
+                        System.out.println("Introdueixi la puntuació que vol posar al taller");
+                        puntuacio = teclat.nextInt();
+                        llistaTallers.getTaller(codiTaller).actualizarPuntuacion(puntuacio);
+                    } catch (InputMismatchException e) {
+                        System.out.println("S'ha d'introduir un enter per a la puntuació");
+                    } catch (NullPointerException e) {
+                        System.out.println("El taller amb aquest codi no es troba en la llista.");
+                    }
+                    break;
+
                 case 10:
                 case 11:
                         menu11(llistaTallers);
