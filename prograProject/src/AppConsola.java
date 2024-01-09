@@ -6,7 +6,7 @@ import java.util.*;
 public class AppConsola{
     public static void main(String[] args){ 
         //carregar fitxers i inicialitzar llistes
-        /*int mida = 0;
+        int mida = 99;
         
         ArxiuNormal entitats = new ArxiuNormal("entitats.txt");
         ArxiuNormal usuarisFitxer = new ArxiuNormal("usuaris.txt");
@@ -18,12 +18,10 @@ public class AppConsola{
 
         ficarLlistaEntitats(entitats,llistaEntitats);
         ficarLlistaUsuaris(usuarisFitxer,llistaUsuaris);
-        ficarLlistaActivitats(activitatsFitxer,llistaActivitats);*/
+        ficarLlistaActivitats(activitatsFitxer,llistaActivitats);
         
-        LlistaActivitats llistaActivitats=null; 
         LlistaActivitats Llistadiadeterminat=null;
-        LlistaUsuaris llistaUsuaris=null;
-        LlistaTallers llistaTallers=null;
+        LlistaTallers llistaTallers= llistaActivitats.llistaTallers();
         LlistaReserves llistaReserves = null;
         Usuaris UsuariMesTallers;
         Tallers TallerExit;
