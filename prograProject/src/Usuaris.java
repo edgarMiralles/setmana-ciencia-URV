@@ -1,12 +1,13 @@
 public class Usuaris {
 
     String alies,correu;
-    int codiPostal;
+    int codiPostal, tallersApuntats;
     
     public Usuaris(String alies,String correu,int codiPostal){
         this.alies = alies;
         this.correu = correu;
         this.codiPostal = codiPostal;
+        tallersApuntats = 0;
     }
 
     public String getAlies() {
@@ -36,5 +37,10 @@ public class Usuaris {
     public Usuaris copia(){
         return (new Usuaris(alies, correu, codiPostal));
     }
-
+    public void afegirApuntat(){
+        tallersApuntats++;
+    }
+    public int getTallersapuntats(){
+        return tallersApuntats;
+    }
 }
