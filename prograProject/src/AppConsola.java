@@ -34,10 +34,20 @@ public class AppConsola{
 
             switch (opcio) {
                 case 1: 
-                    for(int i = 0; i < llistaActivitats.getNumActivitats(); i++){
-                        System.out.println(llistaActivitats.getActivitat(i).toString());
-                    }
-                    
+                    System.out.println("Introdueix la llista que vols consultar(Entitats/Usuaris/Activitats):");
+                    String llista = teclat.nextLine();
+                    if(llista.equalsIgnoreCase("Entitats")){
+                        for(int i = 0; i < llistaEntitats.getNumEntitats(); i++){
+                            System.out.println(llistaEntitats.getEntitat(i).toString());
+                        }
+                    }else if(llista.equalsIgnoreCase("Usuaris")){
+                        for(int i = 0; i < llistaUsuaris.getNumUsuaris(); i++){
+                            System.out.println(llistaUsuaris.getUsuari(i).toString());
+                        }
+                    }else if(llista.equalsIgnoreCase("Activitats")){
+                        for(int i = 0; i < llistaActivitats.getNumActivitats(); i++){
+                            System.out.println(llistaActivitats.getActivitat(i).toString());
+                        }
                     break;
                 case 2: 
                     System.out.println("Introdueixi el nom de l'entitat de la que vol mostrar les activitats:");
