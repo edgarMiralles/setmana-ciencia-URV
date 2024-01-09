@@ -105,6 +105,36 @@ public class LlistaActivitats {
         }
         return copia;
     }
+
+    public LlistaXerrades llistaXerrades(){
+        LlistaXerrades alpha = new LlistaXerrades(numActivitats);
+        for (int i = 0; i < numActivitats; i++) {
+            if (llista[i].copia() instanceof Xerrades) {
+                alpha.afegirActivitat(llista[i].copia());
+            }
+        }
+        return alpha;
+    }
+
+    public LlistaVisites llistaVisites(){
+        LlistaVisites alpha = new LlistaVisites(numActivitats);
+        for (int i = 0; i < numActivitats; i++) {
+            if (llista[i].copia() instanceof Visites) {
+                alpha.afegirActivitat(llista[i].copia());
+            }
+        }
+        return alpha;
+    }
+
+    public LlistaTallers llistaTallers(){
+        LlistaTallers alpha = new LlistaTallers(numActivitats);
+        for (int i = 0; i < numActivitats; i++) {
+            if (llista[i].copia() instanceof Tallers) {
+                alpha.afegirActivitat(llista[i].copia());
+            }
+        }
+        return alpha;
+    }
     
 
 }
