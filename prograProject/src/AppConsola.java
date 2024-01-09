@@ -24,6 +24,7 @@ public class AppConsola{
         LlistaActivitats Llistadiadeterminat=null;
         LlistaUsuaris llistaUsuaris=null;
         LlistaTallers llistaTallers=null;
+        LlistaReserves llistaReserves = null;
         Usuaris UsuariMesTallers;
         Scanner teclat = new Scanner(System.in);
         int opcio;
@@ -59,6 +60,13 @@ public class AppConsola{
                     }
                     break;
                 case 4:
+                    for ( int i = 0; i < llistatallers.getNumActivitats(); i++){
+                        String codi = llistatallers.getActivitat(i).getCodi();
+                        if (reserves.getPlacesOcupadesTaller(codi) < llistatallers.getCapacitatTaller(codi)) {
+                            System.out.println(llistatallers.getActivitat(i));
+                        }
+                    }
+                    
                 case 5://Afegir una nova activitat a la LListaActivitats
                     System.out.println("Introdueixi el nom de l'activitat:");
                     String nom = teclat.nextLine();
