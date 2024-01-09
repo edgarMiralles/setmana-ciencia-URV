@@ -11,5 +11,13 @@ public class LlistaTallers extends LlistaActivitats{
                 }
             }
             return null;
+    }
+    public Tallers getPTallers(int posicio){
+        if (posicio < super.getNumActivitats()) {
+            return ((Tallers)super.getActivitat(posicio));
         }
+        else{
+            return null;
+        }
+    }
 }

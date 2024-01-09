@@ -12,6 +12,12 @@ public class LlistaReserves {
         }
     }
     
+    public void afegirReserva(Reserves r){
+        if (nElem < LlistaReserva.length) {
+            LlistaReserva[nElem] = r.copia();
+            nElem++;
+        }
+    }
     public void afegirReserva(String usuari, String codi_taller, Tallers taller){
         if (nElem < LlistaReserva.length) {
             LlistaReserva[nElem] = new Reserves(usuari, codi_taller, taller);
@@ -54,7 +60,7 @@ public class LlistaReserves {
     public LlistaReserves copiaLlista(){
         LlistaReserves aux = new LlistaReserves(nElem);
         for (int i = 0; i < nElem; i++) {
-            aux.afegirReserva(LlistaReserva[i].getUsuari(), LlistaReserva[i].getCodi_taller(), LlistaReserva[i].getTaller());
+            aux.afegirReserva(LlistaReserva[i].copia());
         }
         return aux;
     }

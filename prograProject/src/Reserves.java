@@ -55,4 +55,5 @@ public class Reserves {
             System.out.println("La valoració ha d'estar en el rang de 0 a 10.");
         }
     }
+    
 }

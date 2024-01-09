@@ -25,6 +25,7 @@ public class AppConsola{
         LlistaUsuaris llistaUsuaris=null;
         LlistaTallers llistaTallers=null;
         Usuaris UsuariMesTallers;
+        Tallers TallerExit;
         Scanner teclat = new Scanner(System.in);
         int opcio;
         do {
@@ -136,7 +137,11 @@ public class AppConsola{
 
                 case 10:
                 case 11:
-                        menu11(llistaTallers);
+                        TallerExit = menu11(llistaTallers);
+                        if(TallerExit != null){
+                            System.out.println("El taller amb mes exit d'ocupacio es el seguent:");
+                            System.out.println(TallerExit);
+                        } 
                 case 12:
                 case 13:
                 case 14:
