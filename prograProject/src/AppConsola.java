@@ -6,6 +6,20 @@ import java.util.*;
 public class AppConsola{
     public static void main(String[] args){ 
         //carregar fitxers i inicialitzar llistes
+        /*int mida = 0;
+        
+        ArxiuNormal entitats = new ArxiuNormal("entitats.txt");
+        ArxiuNormal usuarisFitxer = new ArxiuNormal("usuaris.txt");
+        ArxiuNormal activitatsFitxer = new ArxiuNormal("activitats.txt");
+
+        LlistaEntitats llistaEntitats = new LlistaEntitats(mida);
+        LlistaUsuaris llistaUsuaris = new LlistaUsuaris(mida);
+        LlistaActivitats llistaActivitats = new LlistaActivitats(mida);
+
+        ficarLlistaEntitats(entitats,llistaEntitats);
+        ficarLlistaUsuaris(usuarisFitxer,llistaUsuaris);
+        ficarLlistaActivitats(activitatsFitxer,llistaActivitats);*/
+        
         LlistaActivitats llistaActivitats=null; 
         LlistaActivitats Llistadiadeterminat=null;
         LlistaUsuaris llistaUsuaris=null;
