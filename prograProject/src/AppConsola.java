@@ -66,7 +66,7 @@ public class AppConsola{
                             System.out.println(llistatallers.getActivitat(i));
                         }
                     }
-                    
+                    break;
                 case 5://Afegir una nova activitat a la LListaActivitats
                     System.out.println("Introdueixi el nom de l'activitat:");
                     String nom = teclat.nextLine();
@@ -102,8 +102,10 @@ public class AppConsola{
                         System.out.println("Introdueixi el nom de la persona que farà la xerrada:");
                         String nomPersona = teclat.nextLine();
                         Xerrades xerrada = new Xerrades(nom,lloc,codiPostal,data,nomEntitat2,nomPersona);
-                        llistaActivitats.afegirActivitat(xerrada);}                       
+                        llistaActivitats.afegirActivitat(xerrada);}   
+                    break;
                 case 6:
+                    break;
                     try {
                         String nomUsuari, codiTaller;
                         System.out.println("Introdueix el codi del taller al que es vol inscriure");
@@ -114,8 +116,13 @@ public class AppConsola{
                     } catch (InputMismatchException e) {
                         System.out.println("S'ha d'introduir cadenes de caracter per al codi i l'alies");
                     }
-                    
+                    break;
                 case 7:
+                    String[] noms = llistareserves.nomUsuariReserva();
+                    for (int i = 0; i < noms.length; i++) {
+                        System.out.println(llistaUsuaris.getUsuari(noms[i]));
+                    }
+                    break;
                 case 8:
                     try {
                         UsuariMesTallers = menu8(llistaUsuaris);
@@ -126,6 +133,7 @@ public class AppConsola{
                     } catch (NullPointerException e) {
                         System.out.println("No hi ha cap usuari inscrit a cap taller o s'ha produït una excepció de punter nul.");
                     }
+                    break;
                 case 9: 
                     try {
                         String codiTaller;
@@ -146,7 +154,31 @@ public class AppConsola{
                 case 11:
                         menu11(llistaTallers);
                 case 12:
+                    System.out.println("Quina entitat hi vol ?");
+                    String entitat = teclat.nextLine();
+
+                    System.out.println("Autogia o Adaptat ? --> Autogia = 0 , Adaptat = 1");
+                    boolean adaptat = Boolean.parseBoolean(teclat.nextLine());
+                    LlistaActivitats visitaentitats = llistavisites.llistaVisitesEntintat(entitat);
+                    for (int i = 0; i < visitaentitats.getNumActivitats(); i++) {
+                        Visites a = (Visites)visitaentitats.getActivitat(i);
+                        if(a.isAdaptatCegos() == adaptat){
+                            System.out.println(visitaentitats.getActivitat(i));
+                        }
+                    }
+                    break;
                 case 13:
+                    System.out.println("Quina entitat hi vol ?");
+                    String persona = teclat.nextLine();
+
+                    LlistaActivitats llistaXerrades = llistaActivitats.llistaXerrades();
+
+                    for (int i = 0; i < llistaXerrades.getNumActivitats(); i++) {
+                        Xerrades b = (Xerrades) llistaXerrades.getActivitat(i);
+                        if (b.getNomPersona().equalsIgnoreCase(persona)) {
+                            System.out.println(b);
+                        }
+                    }
                 case 14:
                 case 15:
                     System.out.println("Has seleccionat sortir de la aplicació");
