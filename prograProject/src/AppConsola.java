@@ -15,10 +15,12 @@ public class AppConsola{
         LlistaEntitats llistaEntitats = new LlistaEntitats(mida);
         LlistaUsuaris llistaUsuaris = new LlistaUsuaris(mida);
         LlistaActivitats llistaActivitats = new LlistaActivitats(mida);
-
+        ArxiusSerialitzats reservesFitxer = new ArxiusSerialitzats("reserves.ser");
+        
         ficarLlistaEntitats(entitats,llistaEntitats);
         ficarLlistaUsuaris(usuarisFitxer,llistaUsuaris);
         ficarLlistaActivitats(activitatsFitxer,llistaActivitats);
+        reservesFitxer.LlegirArxiu(llistaReserves);
         
         LlistaActivitats Llistadiadeterminat=null;
         LlistaTallers llistaTallers= llistaActivitats.llistaTallers();
