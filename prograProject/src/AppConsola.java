@@ -11,11 +11,12 @@ public class AppConsola{
         ArxiuNormal entitats = new ArxiuNormal("entitats.txt");
         ArxiuNormal usuarisFitxer = new ArxiuNormal("usuaris.txt");
         ArxiuNormal activitatsFitxer = new ArxiuNormal("activitats.txt");
-
+        ArxiusSerialitzats reservesFitxer = new ArxiusSerialitzats("reserves.ser");
+        
         LlistaEntitats llistaEntitats = new LlistaEntitats(mida);
         LlistaUsuaris llistaUsuaris = new LlistaUsuaris(mida);
         LlistaActivitats llistaActivitats = new LlistaActivitats(mida);
-        ArxiusSerialitzats reservesFitxer = new ArxiusSerialitzats("reserves.ser");
+        LlistaReserves llistaReserves = new LlistaReserves(mida);
         
         ficarLlistaEntitats(entitats,llistaEntitats);
         ficarLlistaUsuaris(usuarisFitxer,llistaUsuaris);
@@ -23,8 +24,10 @@ public class AppConsola{
         reservesFitxer.LlegirArxiu(llistaReserves);
         
         LlistaActivitats Llistadiadeterminat=null;
-        LlistaTallers llistaTallers= llistaActivitats.llistaTallers();
-        LlistaReserves llistaReserves = null;
+        LlistaTallers llistaTallers = llistaActivitats.llistaTallers();
+        LlistaXerrades llistaXerrades = llistaActivitats.llistaXerrades();
+        LlistaVisistes llistaVisites = llistaActivitats.llistaVisites();
+        
         Usuaris UsuariMesTallers;
         Tallers TallerExit;
         Scanner teclat = new Scanner(System.in);
