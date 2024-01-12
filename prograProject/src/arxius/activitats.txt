@@ -1,1 +1,4 @@
-IULIAN;AMETLLA;43860;2022/1/1;ISO;KEVIN
+Iulian;TGN;43860;2022-01-01;Lufthansa;Kevin
+Iulian;TGN;43860;2022-01-01;Lufthansa;Kevin
+Taller1;Tarragona;43431;2022-01-03;URV;3;300
+Visita1;Tarragona;43431;2022-01-03;Tarragona;Serveis;Cosina;true
