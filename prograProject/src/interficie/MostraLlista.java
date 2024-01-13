@@ -1,10 +1,19 @@
+//Iulian Sebastian Oprea --> iuliansebastian.oprea@estudiants.urv.cat
 package interficie;
 
 import javax.swing.*;
 
 import dades.LlistaActivitats;
-
+/**
+ * La classe MostraLlista és una finestra que mostra una llista d'activitats.
+ */
 public class MostraLlista extends JFrame {
+
+     /**
+     * Constructor de la classe MostraLlista.
+     * 
+     * @param llista La llista d'activitats que es mostrarà en la finestra.
+     */
     
     public MostraLlista(LlistaActivitats llista) {
         super("Mostra llista");
@@ -12,10 +21,10 @@ public class MostraLlista extends JFrame {
         setLocation(200, 200);
         // Crear un JTextArea
         JTextArea textArea = new JTextArea();
-        // Deshabilitar la edición
+        // Deshabilità la edició
         textArea.setEditable(false);
 
-        // Agregar cada actividad a textArea
+        // Agregar cada activitat a textArea
         for (int i = 0; i < llista.getNumActivitats(); i++){
             textArea.append(llista.getActivitat(i).toString() + "\n");
         }
