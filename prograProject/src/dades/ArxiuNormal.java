@@ -5,13 +5,29 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 
+/**
+ * La classe ArxiuNormal proporciona funcionalitats per llegir i escriure en un
+ * arxiu de text.
+ */
+
 public class ArxiuNormal{
 
     String ruta;
 
+     /**
+     * Constructor de la classe ArxiuNormal.
+     * @param nom El nom de l'arxiu amb el qual es treballarà.
+     */
+    
     public ArxiuNormal(String nom){
         ruta = "prograProject/src/arxius/"+nom;
     }
+
+     /**
+     * Llegeix les dades de l'arxiu i les retorna com un array de cadenes.
+     * @return Un array de cadenes que conté les dades llegides de l'arxiu.
+     * @throws IOException Si hi ha problemes durant la lectura de l'arxiu.
+     */
 
     public String[] LlegirArxiu() throws IOException{
         String[] dades = new String[99];
@@ -27,7 +43,11 @@ public class ArxiuNormal{
         lectura.close();
         return dades;
     }
-
+     /**
+     * Escriu les dades proporcionades a l'arxiu.
+     * @param dades Un array de cadenes que conté les dades a escriure a l'arxiu.
+     * @throws IOException Si hi ha problemes durant l'escriptura de l'arxiu.
+     */
     public void EscriureArxiu(String[] dades) throws IOException{
 
         BufferedWriter escritura = new BufferedWriter (new FileWriter(ruta));
