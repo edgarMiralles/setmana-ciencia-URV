@@ -1,3 +1,4 @@
+//Iulian Sebastian Oprea --> iuliansebastian.oprea@estudiants.urv.cat
 package interficie;
 
 import javax.swing.*;
@@ -7,6 +8,10 @@ import dades.LlistaActivitats;
 import java.awt.event.*;
 import java.time.LocalDate;
 
+/**
+ * La classe AccioButton implementa l'interfície ActionListener per gestionar les accions dels botons associats a la visualització de les activitats.
+ */
+
 public class AccioButton implements ActionListener {
 
     private JButton[] llistaBoto;
@@ -14,6 +19,16 @@ public class AccioButton implements ActionListener {
     private JButton[] llistaButton3;
     private int dia,mes,any;
 
+    /**
+     * Constructor de la classe AccioButton.
+     * @param LlistaButton  Array de botons que representen els dies.
+     * @param llistaActivitats  Llista d'activitats.
+     * @param LlistaButton2 Array de botons que representa els tipus d'activitats.
+     * @param dia Dia seleccionat.
+     * @param mes Mes seleccionat.
+     * @param any Any seleccionat.
+     */
+    
     public AccioButton(JButton[] LlistaButton,LlistaActivitats llistaActivitats,JButton[] LlistaButton2,int dia,int mes,int any) {
         llistaBoto = LlistaButton;
         this.llistaActivitats = llistaActivitats;
@@ -22,7 +37,11 @@ public class AccioButton implements ActionListener {
         this.mes = mes;
         this.any = any;
     }
-
+    /**
+     * Mètode que es crida quan es fa clic en un botó de dia.
+     * 
+     * @param evt Event de l'acció.
+     */
     public void actionPerformed(ActionEvent evt) {
         JButton b = (JButton) evt.getSource();
         for (int i = 0; i < 10; i++) {
