@@ -1,9 +1,15 @@
+//Iulian Sebastian Oprea --> iuliansebastian.oprea@estudiants.urv.cat
 package interficie;
 import java.awt.Color;
 import java.awt.event.*;
 import java.time.LocalDate;
 import javax.swing.*;
 import dades.LlistaActivitats;
+
+/**
+ * La classe AccioButtonFilter implementa l'interfície ActionListener per gestionar
+ * les accions dels botons de filtre d'activitats.
+ */
 
 public class AccioButtonFilter implements ActionListener {
 
@@ -12,6 +18,16 @@ public class AccioButtonFilter implements ActionListener {
     private JButton[] LlistaButton3 ;
     private int dia,mes,any;
 
+    /**
+     * Constructor de la classe AccioButtonFilter.
+     * @param LlistaButton  Array de botons que representen els dies.
+     * @param llistaActivitats  Llista d'activitats.
+     * @param LlistaButton2 Array de botons que representa els tipus d'activitats.
+     * @param dia Dia seleccionat.
+     * @param mes Mes seleccionat.
+     * @param any Any seleccionat.
+     */
+    
     public AccioButtonFilter(JButton[] LlistaButton,LlistaActivitats llistaActivitats,JButton[] LlistaButton2,int dia,int mes,int any) {
         this.Llistabutton = LlistaButton;
         this.llistaActivitats = llistaActivitats;
@@ -21,6 +37,12 @@ public class AccioButtonFilter implements ActionListener {
         this.any = any;
     }
 
+    
+    /**
+     * Mètode que es crida quan es fa clic en un botó de filtre d'activitats.
+     * 
+     * @param evt Event de l'acció.
+     */
     public void actionPerformed(ActionEvent evt) {
         JButton b = (JButton) evt.getSource();
         if (b.getText().equals("Xerrades")){
