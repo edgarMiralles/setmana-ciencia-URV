@@ -6,8 +6,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 
 /**
- * La classe ArxiuNormal proporciona funcionalitats per llegir i escriure en un
- * arxiu de text.
+ * La classe ArxiuNormal proporciona funcionalitats per llegir i escriure en un arxiu de text.
  */
 
 public class ArxiuNormal{
