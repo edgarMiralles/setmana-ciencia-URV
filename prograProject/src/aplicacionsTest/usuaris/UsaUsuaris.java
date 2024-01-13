@@ -1,3 +1,5 @@
+//Autor : Iulian Sebastian Oprea --> iuliansebastian.oprea@urv.estudiants.cat
+
 package aplicacionsTest.usuaris;
 
 import dades.Usuaris;
