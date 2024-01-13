@@ -9,6 +9,12 @@ public class LlistaActivitats implements Serializable {
     private Activitats[] llista;
     private int numActivitats;
     
+    /**
+     * Constructor LlistaActivitats
+     * @param n
+     * Si n <= 0, llavors la llista tindra 10 posicions
+     * Sino s'assigna el valor introduit per parametre
+     */
     public LlistaActivitats(int n) {
         if (n <= 0) {
             llista = new Activitats[10];
@@ -21,6 +27,11 @@ public class LlistaActivitats implements Serializable {
         
     }
     
+    /**
+     * Metode per afegir una activitat a la llista
+     * @param activitat
+     * @return 1 si s'ha afegit, 0 si no s'ha afegit
+     */
     public int afegirActivitat(Activitats activitat) {
         if (numActivitats < llista.length) {
             llista[numActivitats] = activitat.copia();
@@ -31,6 +42,10 @@ public class LlistaActivitats implements Serializable {
         }
     }
     
+    /**
+     * Metode per eliminar una activitat de la llista
+     * @param codi
+     */
     public void eliminarActivitat(String codi) {
         int pos = 0;
         boolean trobat = false;
@@ -49,14 +64,27 @@ public class LlistaActivitats implements Serializable {
         }
     }
     
+    /**
+     * Getter llista
+     * @return llista
+     */
     public Activitats[] getLlista() {
         return llista;
     }
 
+    /**
+     * Getter numActivitats
+     * @return numActivitats
+     */
     public int getNumActivitats() {
         return numActivitats;
     }
 
+    /**
+     * Cerca una activitat a partir del codi
+     * @param codi
+     * @return llista[pos] si trobat, null si no trobat
+     */
     public Activitats cercarActivitat(String codi) {
         int pos = 0;
         boolean trobat = false;
@@ -74,6 +102,11 @@ public class LlistaActivitats implements Serializable {
         }
     }
     
+    /**
+     * Modifica una activitat
+     * @param codi
+     * @param llista2
+     */
     public void modificarActivitat(String codi, Activitats llista2) {
         int pos = 0;
         boolean trobat = false;
@@ -89,6 +122,9 @@ public class LlistaActivitats implements Serializable {
         }
     }
     
+    /**
+     * toString
+     */
     public String toString() {
         String llistaActivitats = "";
         for (int i = 0; i < numActivitats; i++) {
@@ -98,14 +134,28 @@ public class LlistaActivitats implements Serializable {
         return llistaActivitats;
     }
 
+    /**
+     * Getter data
+     * @param posicio
+     * @return llista[posicio].getData()
+     */
     public LocalDate getData (int posicio){
         return (llista[posicio].getData());
     }
     
+    /**
+     * Getter activitat
+     * @param posicio
+     * @return llista[posicio].copia()
+     */
     public Activitats getActivitat (int posicio){
         return (llista[posicio].copia());
     }
 
+    /**
+     * Metode copia
+     * @return llistaActivitats
+     */
     public LlistaActivitats copia() {
         LlistaActivitats copia = new LlistaActivitats(this.llista.length);
         for (int i = 0; i < numActivitats; i++) {
@@ -114,6 +164,10 @@ public class LlistaActivitats implements Serializable {
         return copia;
     }
 
+    /**
+     * Retorna les xerrades de la llistaActivitats
+     * @return llistaXerrades
+     */
     public LlistaActivitats llistaXerrades(){
         LlistaActivitats alpha = new LlistaActivitats(numActivitats);
         for (int i = 0; i < numActivitats; i++) {
@@ -123,7 +177,11 @@ public class LlistaActivitats implements Serializable {
         }
         return alpha;
     }
-
+    /**
+     * Retorna les xerrades de la llistaActivitats segons el nom de la persona
+     * @param nom
+     * @return llistaXerrades
+     */
     public LlistaActivitats llistaXerradesPersona(String nom){
         LlistaActivitats alpha = new LlistaActivitats(numActivitats);
         for (int i = 0; i < numActivitats; i++) {
@@ -134,6 +192,12 @@ public class LlistaActivitats implements Serializable {
         return alpha;
     }
 
+    /**
+     * Retorna les visites de la llistaActivitats segons la entitat i si es adaptat o no als cegos
+     * @param entitat
+     * @param adaptat
+     * @return llistaVisitesEntitat
+     */
     public LlistaActivitats llistaVisitesEntitat(String entitat,boolean adaptat){
         LlistaActivitats alpha = new LlistaActivitats(numActivitats);
         for (int i = 0; i < numActivitats; i++) {
@@ -143,7 +207,11 @@ public class LlistaActivitats implements Serializable {
         }
         return alpha;
     }
-
+   
+    /**
+     * Retorna les visites de la llistaActivitats 
+     * @return llistaVisitesEntitat
+     */
     public LlistaActivitats llistaVisites(){
         LlistaActivitats alpha = new LlistaActivitats(numActivitats);
         for (int i = 0; i < numActivitats; i++) {
@@ -154,6 +222,10 @@ public class LlistaActivitats implements Serializable {
         return alpha;
     }
 
+    /**
+     * Retorna els tallers de la llistaActivitats
+     * @return llistaTallers
+     */
     public LlistaActivitats llistaTallers(){
         LlistaActivitats alpha = new LlistaActivitats(numActivitats);
         for (int i = 0; i < numActivitats; i++) {
@@ -164,6 +236,11 @@ public class LlistaActivitats implements Serializable {
         return alpha;
     }
 
+    /**
+     * Retorna les activitats realitzades en un dia
+     * @param dia
+     * @return llistaActivitats
+     */
     public LlistaActivitats llistaDia(LocalDate dia){
         LlistaActivitats aux = new LlistaActivitats(numActivitats);
         for (int i = 0; i < numActivitats; i++) {
@@ -229,6 +306,11 @@ public class LlistaActivitats implements Serializable {
         }
     }
 
+    /**
+     * Getter codi
+     * @param posicio
+     * @return llista[posicio].getCodi()
+     */
     public String getCodiT(int posicio){
         return (llista[posicio].getCodi());
     }
