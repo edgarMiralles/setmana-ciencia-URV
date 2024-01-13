@@ -1,3 +1,4 @@
+//Iulian Sebastian Oprea --> iuliansebastian.oprea@estudiants.urv.cat
 package interficie;
 
 import java.time.LocalDate;
@@ -6,11 +7,20 @@ import javax.swing.*;
 import dades.*;
 import expeciones.*;
 
+/**
+ * La classe InterficieGrafica representa la interfície gràfica principal del sistema de gestió d'activitats.
+ */
 public class InterficieGrafica extends JFrame{
 
     private JButton[] LlistaButton10 = new JButton[10];
     private JButton[] LlistaButton3 = new JButton[3];
 
+    /**
+     * Constructor de la classe InterficieGrafica.
+     * 
+     * @param llistaActivitats La llista d'activitats que es mostrarà a la interfície.
+     */
+    
     public InterficieGrafica(LlistaActivitats llistaActivitats) {
 
         super("Interficie gràfica");
@@ -72,12 +82,22 @@ public class InterficieGrafica extends JFrame{
         
     }
 
+    /**
+     * Mètode per validar el dia.
+     * @param dia Dia a validar.
+     * @throws DiaExepcion Llança una excepció si el dia no és vàlid.
+     */
+    
     public static void validarDia(int dia) throws DiaExepcion {
         if (dia < 1 || dia > 31) {
             throw new DiaExepcion();
         }
     }
-
+    /**
+     * Mètode per validar el mes.
+     * @param mes Mes a validar.
+     * @throws MesExepcion Llança una excepció si el mes no és vàlid.
+     */
     public static void validarMes(int mes) throws MesExepcion {
         if (mes < 1 || mes > 12) {
             throw new MesExepcion();
