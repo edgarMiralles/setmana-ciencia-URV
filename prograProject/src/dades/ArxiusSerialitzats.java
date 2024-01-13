@@ -1,14 +1,30 @@
+//Iulian Sebastian Oprea --> iuliansebastian.oprea@estudiants.urv.cat
 package dades;
 import java.io.*;
+
+/**
+ * La classe ArxiusSerialitzats ofereix funcionalitats per llegir i escriure objectes serialitzats a un fitxer.
+ */
 
 public class ArxiusSerialitzats {
     
     private String NomArxiu;
 
+    /**
+     * Constructor de la classe ArxiusSerialitzats.
+     * @param NomArxiu El nom de l'arxiu amb el qual es treballarà.
+     */
+    
     public ArxiusSerialitzats(String NomArxiu){
         this.NomArxiu = "prograProject/src/arxius/" + NomArxiu;
     }
 
+    /**
+     * Llegeix les reserves serialitzades de l'arxiu i les afegeix a la llista
+     * proporcionada.
+     * @param llista La llista de reserves on s'afegiran les reserves llegides.
+     */
+    
     public void LlegirArxiu(LlistaReserves llista) {
         try (ObjectInputStream lectura = new ObjectInputStream(new FileInputStream(NomArxiu))) {
             boolean continua = true;
@@ -28,6 +44,11 @@ public class ArxiusSerialitzats {
         }
     }
 
+    /**
+     * Escriu les reserves de la llista a l'arxiu en format serialitzat.
+     * @param alpha La llista de reserves que es vol escriure a l'arxiu.
+     */
+    
     public void EscriuArxiu(LlistaReserves alpha){
         try{
             ObjectOutputStream escritura = new ObjectOutputStream(new FileOutputStream(NomArxiu));
