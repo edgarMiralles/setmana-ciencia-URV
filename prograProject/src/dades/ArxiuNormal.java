@@ -1,3 +1,4 @@
+//Iulian Sebastian Oprea --> iuliansebastian.oprea@estudiants.urv.cat
 package dades;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
