@@ -8,7 +8,7 @@ public class UsaLlistaEntitats {
     public static void main(String[] args) {
         LlistaEntitats llistaent = new LlistaEntitats(2);
 
-        Entitats e1 = new Entitats("Illya", "123456789", "ilya@urv.cat");
+        Entitats e1 = new Entitats("Illya", "123456789", "illya@urv.cat");
         Entitats e2 = new Entitats("Nawfal", "987654321", "nawfal@urv.cat");
         llistaent.afegirEntitat(e1);
         llistaent.afegirEntitat(e2);

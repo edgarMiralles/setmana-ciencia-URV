@@ -10,8 +10,8 @@ public class UsaXerrades {
         
         System.out.println("Test getNomPersona: "+xerrades.getNomPersona());
         
-        System.out.println("Xerrada abans de setNomPersona: "+xerrades.getNomPersona());
+        System.out.println("Xerrada abans de setNomPersona: "+xerrades);
         xerrades.setNomPersona("Arseni");
-        System.out.println("Xerrada despres de setNomPersona: "+xerrades.getNomPersona());
+        System.out.println("Xerrada despres de setNomPersona: "+xerrades);
     }
 }
