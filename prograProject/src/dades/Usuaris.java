@@ -1,3 +1,4 @@
+//Iulian Sebastian Oprea --> iuliansebastian.oprea@estudiants.urv.cat
 package dades;
 
 /**
