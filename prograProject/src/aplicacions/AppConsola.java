@@ -156,19 +156,7 @@ public class AppConsola {
                     break;
                 case 10: // Calcular la nota mitja que ha rebut un taller
                 try {
-                        String coditaller;
-                        double notaMitjaTaller;
-                        int punt, placesocupades;
-                        System.out.println("Introdueix el codi del taller per calcular la nota mitja. ");
-                        coditaller = teclat.next();
-                        punt = llistaTallers.getTaller(coditaller).getPuntuacio();
-                        placesocupades = llistaTallers.getTaller(coditaller).getPlacesOcupades();
-                        if (placesocupades > 0) {
-                            notaMitjaTaller =  punt / placesocupades;
-                            System.out.println("La nota mitja del taller " + llistaTallers.getTaller(coditaller) + " es: " + notaMitjaTaller);
-                        } else {
-                            System.out.println("No es possible calcular la nota mitja ja que no s'ha fet cap reserva.");
-                        }    
+                        menu10(llistaTallers);   
                     } catch (NullPointerException e) {
                         System.out.println("El taller amb aquest codi no es troba en la llista.");
                     }
@@ -193,16 +181,7 @@ public class AppConsola {
                     String persona = teclat.nextLine();
                     System.out.println(llistaActivitats.llistaXerradesPersona(persona));
                 case 14:
-                    try {
-                        String codiTaller;
-                        System.out.println("Introdueix el codi del taller que vols donar de baixa:");
-                        codiTaller = teclat.next();
-                        llistaTallers.eliminarActivitat(codiTaller);
-                        System.out.println("S'ha donat de baixa el taller amb codi " + codiTaller);
-                        
-                    } catch (NullPointerException e){
-                        System.out.println("El taller amb aquest codi no es troba en la llista.");
-                    }
+                    menu14(llistaTallers);
                     break;
                 case 15:
                     System.out.println("Has seleccionat sortir de la aplicació");
@@ -429,6 +408,42 @@ public class AppConsola {
         }
         return UsuariMesTallers;
 
+    }
+    private static void menu10(LlistaTallers llistaTallers){
+
+        Scanner teclat = new Scanner(System.in);
+        String coditaller;
+        int MitjaTaller;
+        int placesocupades;
+        System.out.println("Introdueix el codi del taller per calcular la nota mitja. ");
+        coditaller = teclat.next();
+        MitjaTaller = llistaTallers.getTaller(coditaller).getPuntuacio();
+        placesocupades = llistaTallers.getTaller(coditaller).getPlacesOcupades();
+        if (placesocupades > 0) {
+            System.out.println("La nota mitja del taller " + llistaTallers.getTaller(coditaller) + " es: " + MitjaTaller);
+        } 
+        else {
+            System.out.println("No es possible calcular la nota mitja ja que no s'ha fet cap reserva.");
+        }
+      
+
+    }
+    private static void menu14(LlistaTallers llistaTallers){
+        Scanner teclat = new Scanner(System.in);
+        try {
+            String codiTaller;
+            System.out.println("Introdueix el codi del taller que vols donar de baixa:");
+            codiTaller = teclat.next();
+            if (llistaTallers.getTaller(codiTaller).getPlacesOcupades() == 0){
+                llistaTallers.eliminarActivitat(codiTaller);
+                System.out.println("S'ha donat de baixa el taller amb codi " + codiTaller);
+            }
+            else{
+                System.out.println("No es pot donar de baixa al taller. Hi ha usuaris apuntats,");
+            }
+        } catch (NullPointerException e) {
+            System.out.println("El taller amb aquest codi no es troba en la llista.");
+        } 
     }
 
     private static void afegirActivitat(LlistaActivitats llistaActivitats) {
