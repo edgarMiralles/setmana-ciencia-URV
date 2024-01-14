@@ -41,7 +41,7 @@ public class Xerrades extends Activitats{
      * @return Xerrada
      */
     public Xerrades copia() {
-        Xerrades x = new Xerrades(this.getNom(), this.getLloc(), this.getCodiPostal(), this.getData(), this.getNomEntitat(), this.getNomPersona());
+        Xerrades x = new Xerrades(this.getNom(), this.getLloc(), this.getCodiPostal(), this.getData(), this.getNomEntitat(), this.nomPersona);
         x.setCodi(this.getCodi());
         return x;
     }
