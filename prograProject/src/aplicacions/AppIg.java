@@ -11,20 +11,20 @@ public class AppIg {
         //carregar fitxers i inicialitzar llistes
         int mida = 99;
         
-        //ArxiuNormal entitatsFitxer = new ArxiuNormal("entitats.txt");
-        //ArxiuNormal usuarisFitxer = new ArxiuNormal("usuaris.txt");
+        ArxiuNormal entitatsFitxer = new ArxiuNormal("entitats.txt");
+        ArxiuNormal usuarisFitxer = new ArxiuNormal("usuaris.txt");
         ArxiuNormal activitatsFitxer = new ArxiuNormal("activitats.txt");
-        //ArxiusSerialitzats reservesFitxer = new ArxiusSerialitzats("reserves.ser");
+        ArxiusSerialitzats reservesFitxer = new ArxiusSerialitzats("reserves.ser");
         
-        //LlistaEntitats llistaEntitats = new LlistaEntitats(mida);
-        //LlistaUsuaris llistaUsuaris = new LlistaUsuaris(mida);
+        LlistaEntitats llistaEntitats = new LlistaEntitats(mida);
+        LlistaUsuaris llistaUsuaris = new LlistaUsuaris(mida);
         LlistaActivitats llistaActivitats = new LlistaActivitats(mida);
-        //LlistaReserves llistaReserves = new LlistaReserves(mida);
+        LlistaReserves llistaReserves = new LlistaReserves(mida);
         
-        //ficarLlistaEntitats(entitatsFitxer,llistaEntitats);
-        //ficarLlistaUsuaris(usuarisFitxer,llistaUsuaris);
+        ficarLlistaEntitats(entitatsFitxer,llistaEntitats);
+        ficarLlistaUsuaris(usuarisFitxer,llistaUsuaris);
         ficarLlistaActivitats(activitatsFitxer,llistaActivitats);
-        //reservesFitxer.LlegirArxiu(llistaReserves);
+        reservesFitxer.LlegirArxiu(llistaReserves);
         
         new InterficieGrafica(llistaActivitats);
     }
