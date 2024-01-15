@@ -151,6 +151,19 @@ public class LlistaUsuaris {
         }
         return null;
     }
+    /**
+     * Obtenir un usuari a partir del seu alies. 
+     * @param nomUsuari L'alies de l'usuari.
+     * @return La referència de l'usuari o null si no es troba.
+     */
+    public Usuaris getRefUsuari(String nomUsuari){
+        for (int i = 0; i < nElem; i++) {
+            if (LlistaUsuari[i].getAlies().equalsIgnoreCase(nomUsuari)) {
+                return LlistaUsuari[i];
+            }
+        }
+        return null;
+    }
      /**
      * Obtenir una còpia de la llista d'usuaris.
      * @return Una nova instància de LlistaUsuaris amb la mateixa informació.

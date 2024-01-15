@@ -375,12 +375,11 @@ public class AppConsola {
         Usuaris UsuariMesTallers=null;
         for (int i = 0; i < llistaUsuaris.getNumUsuaris(); i++) {
             if (llistaUsuaris.getNTallers(llistaUsuaris.getAliesLlista(i)) > max) {
-                UsuariMesTallers = llistaUsuaris.getUsuari(llistaUsuaris.getAliesLlista(i));
+                UsuariMesTallers = llistaUsuaris.getRefUsuari(llistaUsuaris.getAliesLlista(i));
                 max = llistaUsuaris.getNTallers(llistaUsuaris.getAliesLlista(i));
             }
         }
         return UsuariMesTallers;
-
     }
     private static void menu10(LlistaActivitats llistaTallers){
 
