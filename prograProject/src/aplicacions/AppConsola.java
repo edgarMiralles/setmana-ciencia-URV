@@ -124,6 +124,7 @@ public class AppConsola {
                             llistaTallers.getTaller(codiTaller).setSatisfaccio(puntuacio);
                         }*/
                         llistaReserves.setSatisfaccio(nomUsuari, puntuacio, codiTaller);
+                        System.out.println("S'ha actualitzat la puntuació del taller " + codiTaller + " amb la puntuació " + puntuacio);
                         //llistaTallers.getTaller(codiTaller).actualizarPuntuacion(puntuacio);
                     } catch (InputMismatchException e) {
                         System.out.println("S'ha d'introduir un enter per a la puntuació");
