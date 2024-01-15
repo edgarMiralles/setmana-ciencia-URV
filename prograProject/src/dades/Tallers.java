@@ -53,7 +53,9 @@ public class Tallers extends Activitats {
         }else return null;   
     }
     public Tallers copia() {
-        return new Tallers(nom, lloc, codiPostal, data, nomEntitat, durada, capacitat);
+        Tallers copia = new Tallers(nom, lloc, codiPostal, data, nomEntitat, durada, capacitat);
+        copia.setCodi(codi);
+        return copia;
     }
     
     public String toString() {
