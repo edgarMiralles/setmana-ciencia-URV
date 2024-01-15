@@ -70,7 +70,14 @@ public class LlistaReserves implements Serializable{
             }
         }
     }
-
+    public Reserves getReserves(String usuari){
+        for (int i = 0; i < nElem; i++) {
+            if (LlistaReserva[i].getUsuari().equalsIgnoreCase(usuari)) {
+                return LlistaReserva[i];
+            }
+        }
+        return null;
+    }
     public LlistaReserves copiaLlista(){
         LlistaReserves aux = new LlistaReserves(nElem);
         for (int i = 0; i < nElem; i++) {

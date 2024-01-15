@@ -361,6 +361,7 @@ public class AppConsola {
             Tallers taller = llista.getTaller(codiTaller);
             if (taller.getCapacitat() >= 1) {
                 taller.afegirReserva(nomUsuari);    //Fem la reserva
+                System.out.println("Reserva confirmada: "+taller.getReserva(nomUsuari));
                 llistaUsuaris.afegirApuntat(nomUsuari); //Augmentem el numero de tallers als que s'apuntat l'usuari
             } else {
                 System.out.println("El taller no te plaçes disponibles");

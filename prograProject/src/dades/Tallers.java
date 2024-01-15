@@ -57,7 +57,9 @@ public class Tallers extends Activitats {
         copia.setCodi(codi);
         return copia;
     }
-    
+    public Reserves getReserva(String usuari){
+        return reserves.getReserves(usuari);
+    }
     public String toString() {
         return "Nom: " + nom +" Lloc: " + lloc +" Codi Postal: " + codiPostal +" Data: " + data +" Nom Entitat: " + nomEntitat +" Durada: " + durada +" Capacitat: " + capacitat +" Puntuacio: " + puntuacio +" Codi Taller: "+codi+"\nReserves:\n" + reserves;
     }
