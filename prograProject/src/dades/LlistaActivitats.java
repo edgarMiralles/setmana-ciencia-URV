@@ -255,9 +255,9 @@ public class LlistaActivitats implements Serializable {
 
     public Tallers getTaller(String codi){
         for(int i = 0 ; i < numActivitats; i++){
-            Tallers taller = (Tallers)llista[i].copia();
+            Tallers taller = (Tallers)llista[i];
             if(taller.getCodi().equalsIgnoreCase(codi)){
-                return taller;
+                return ((Tallers)llista[i]);
             }
         }
         return null;
@@ -316,22 +316,21 @@ public class LlistaActivitats implements Serializable {
     }
 
     public Tallers getTallerExit(){
-        Tallers tallerExit = null;
+        Tallers tallerExit=null;
         Tallers aux;
         float max = 0;
         for (int i = 0; i < numActivitats; i++) {
-            if(llista[i].copia() instanceof Tallers){
-                aux = (Tallers)llista[i].copia();
+                aux = (Tallers)llista[i];
                 if (aux.getCapacitat() != 0) {
-                    if ((aux.getPlacesOcupades()/aux.getCapacitat()) > max) {
-                        max = (aux.getPlacesOcupades()/aux.getCapacitat());
-                        tallerExit = (Tallers)aux.copia();
+                    float proporcioOcupades = (float) aux.getPlacesOcupades() / aux.getCapacitat();
+                    if (proporcioOcupades > max) {
+                        max = proporcioOcupades;
+                        tallerExit = (Tallers) aux.copia();
                     }
                 }
             }
+            return tallerExit;
         }
-        return tallerExit;
-    }
 
     public LlistaActivitats llistaTallersDisponibles(LlistaReserves llistaReserves){
         LlistaActivitats llistaTallersDisponibles = new LlistaActivitats(numActivitats);
