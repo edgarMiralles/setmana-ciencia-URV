@@ -58,11 +58,15 @@ public class AppConsola {
                 case 2: // Obtenir i mostrar la llista d’activitats que ofereix una entitat concreta
                     System.out.println("Introdueixi el nom de l'entitat de la que vol mostrar les activitats:");
                     String nomEntitat = teclat.nextLine();
+                    LlistaActivitats llistaEntitat = new LlistaActivitats(10);
                     for(int i = 0; i < llistaActivitats.getNumActivitats(); i++){
                         if(llistaActivitats.getActivitat(i).getNomEntitat().equalsIgnoreCase(nomEntitat)){
                             System.out.println(llistaActivitats.getActivitat(i));
+                            llistaEntitat.afegirActivitat(llistaActivitats.getActivitat(i));
+
                         }
                     }
+                    System.out.println(llistaEntitat);
                     break;
                 case 3: // Obtenir i mostrar la llista de les activitats que es duen a terme en un dia indicat per teclat.
                     System.out.println("Introdueixi el dia (AAAA-MM-DD) del que vol guardar la llista d'activitats:");
@@ -440,6 +444,7 @@ public class AppConsola {
             teclat.nextLine();
             Tallers taller = new Tallers(nom,lloc,codiPostal,data,nomEntitat2,durada,capacitat);
             llistaActivitats.afegirActivitat(taller);
+            System.out.println(taller);
         }else if(tipus.equalsIgnoreCase("Visita")){
             System.out.println("Introdueixi el lloc a visitar:");
             String llocVisita = teclat.nextLine();
@@ -449,11 +454,13 @@ public class AppConsola {
             boolean adaptatCegos = teclat.nextBoolean();
             Visites visita = new Visites(nom,lloc,codiPostal,data,nomEntitat2,llocVisita,serveis,adaptatCegos);
             llistaActivitats.afegirActivitat(visita);
+            System.out.println(visita);
         }else if(tipus.equalsIgnoreCase("Xerrada")){
             System.out.println("Introdueixi el nom de la persona que farà la xerrada:");
             String nomPersona = teclat.nextLine();
             Xerrades xerrada = new Xerrades(nom,lloc,codiPostal,data,nomEntitat2,nomPersona);
             llistaActivitats.afegirActivitat(xerrada); 
+            System.out.println(xerrada);
         }   
     }
     
