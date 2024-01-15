@@ -61,12 +61,10 @@ public class AppConsola {
                     LlistaActivitats llistaEntitat = new LlistaActivitats(10);
                     for(int i = 0; i < llistaActivitats.getNumActivitats(); i++){
                         if(llistaActivitats.getActivitat(i).getNomEntitat().equalsIgnoreCase(nomEntitat)){
-                            System.out.println(llistaActivitats.getActivitat(i));
                             llistaEntitat.afegirActivitat(llistaActivitats.getActivitat(i));
-
                         }
-                    }
-                    System.out.println(llistaEntitat);
+                    };
+                    System.out.println("Les activitats de la entitat "+nomEntitat+" son les seguents:\n\n"+llistaEntitat);
                     break;
                 case 3: // Obtenir i mostrar la llista de les activitats que es duen a terme en un dia indicat per teclat.
                     System.out.println("Introdueixi el dia (AAAA-MM-DD) del que vol guardar la llista d'activitats:");
@@ -120,12 +118,8 @@ public class AppConsola {
                         puntuacio = teclat.nextInt();
                         System.out.println("Introdueixi el nom de l'usuari que ha fet la puntuació");
                         String nomUsuari = teclat.next();
-                        /*if(llistaTallers.getUsuari(nomUsuari).equalsIgnoreCase(nomUsuari)){
-                            llistaTallers.getTaller(codiTaller).setSatisfaccio(puntuacio);
-                        }*/
                         llistaReserves.setSatisfaccio(nomUsuari, puntuacio, codiTaller);
                         System.out.println("S'ha actualitzat la puntuació del taller " + codiTaller + " amb la puntuació " + puntuacio);
-                        //llistaTallers.getTaller(codiTaller).actualizarPuntuacion(puntuacio);
                     } catch (InputMismatchException e) {
                         System.out.println("S'ha d'introduir un enter per a la puntuació");
                     } catch (NullPointerException e) {
