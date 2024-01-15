@@ -1,4 +1,5 @@
 package aplicacions;
+
 import java.io.*;
 import java.time.LocalDate;
 import java.time.format.DateTimeParseException;
@@ -7,7 +8,7 @@ import java.util.*;
 import dades.*;
 
 public class AppConsola {
-    
+    static Scanner teclat = new Scanner(System.in);
     public static void main(String[] args){ 
         //carregar fitxers i inicialitzar llistes
         int mida = 99;
@@ -27,39 +28,11 @@ public class AppConsola {
         ficarLlistaActivitats(activitatsFitxer,llistaActivitats);
         reservesFitxer.LlegirArxiu(llistaReserves);
 
-        /*LlistaActivitats llistaActivitats = new LlistaActivitats(12);
-        Xerrades activitat1 = new Xerrades("Xerrada1", "Iulian1", 43860, LocalDate.of(2022,1, 1), "Illya1","Nawfall1");
-        Xerrades activitat2 = new Xerrades("Xerrada2", "Iulian2", 43860, LocalDate.of(2022,1, 2), "Illya2","Nawfall2");
-        Xerrades activitat3 = new Xerrades("Xerrada3", "Iulian3", 43860, LocalDate.of(2022,1, 2), "Illya3","Nawfall3");
-        Xerrades activitat4 = new Xerrades("Xerrada4", "Iulian4", 43860, LocalDate.of(2022,1, 3), "Illya4","Nawfall4");
-        Xerrades activitat5 = new Xerrades("Xerrada5", "Iulian5", 43860, LocalDate.of(2022,1, 5), "Illya5","Nawfall5");
-        Tallers activitat6 = new Tallers("Tallers6", "Iulian6", 43860, LocalDate.of(2022,1, 5),"ISO", 3,30);
-        Xerrades activitat7 = new Xerrades("Xerrada7", "Iulian7", 43860, LocalDate.of(2022,1, 6), "Illya7","Nawfall7");
-        Xerrades activitat8 = new Xerrades("Xerrada8", "Iulian8", 43860, LocalDate.of(2022,1, 7), "Illya8","Nawfall8");
-        Xerrades activitat9 = new Xerrades("Xerrada9", "Iulian9", 9, LocalDate.of(2022,1, 7), "Illy9a","Nawfall9");
-        Visites activitat10 = new Visites("Visites10", "Iulian10", 10, LocalDate.of(2022,1, 9), "Illya10","Nawfall10","Fora",false);
-        Visites activitat12 = new Visites("Visites10", "Iulian10", 10, LocalDate.of(2022,1, 2), "Illya","Nawfall10","Fora",true);
-        Xerrades activitat11 = new Xerrades("Xerrada11", "Iulian11", 11, LocalDate.of(2022,1, 10), "Illya11","Nawfall11");
-
-        llistaActivitats.afegirActivitat(activitat1);
-        llistaActivitats.afegirActivitat(activitat2);
-        llistaActivitats.afegirActivitat(activitat3);
-        llistaActivitats.afegirActivitat(activitat4);
-        llistaActivitats.afegirActivitat(activitat5);
-        llistaActivitats.afegirActivitat(activitat6);
-        llistaActivitats.afegirActivitat(activitat7);
-        llistaActivitats.afegirActivitat(activitat8);
-        llistaActivitats.afegirActivitat(activitat9);
-        llistaActivitats.afegirActivitat(activitat10);
-        llistaActivitats.afegirActivitat(activitat11);
-        llistaActivitats.afegirActivitat(activitat12);*/
-
         LlistaActivitats Llistadiadeterminat=null;
         LlistaActivitats llistaTallers = llistaActivitats.llistaTallers();
         
         Usuaris UsuariMesTallers;
         Tallers TallerExit;
-        Scanner teclat = new Scanner(System.in);
         int opcio;
         do {
             menuOpcions();
@@ -180,6 +153,7 @@ public class AppConsola {
                     System.out.println("Quina persona hi vols que sigui la XERRADA ?");
                     String persona = teclat.nextLine();
                     System.out.println(llistaActivitats.llistaXerradesPersona(persona));
+                    break;
                 case 14:
                     menu14(llistaTallers);
                     break;
@@ -201,7 +175,6 @@ public class AppConsola {
             }
 
         } while (opcio != 15);
-        teclat.close();
     }
     public static void menuOpcions(){
             System.out.println("Menu d'opcions:");
@@ -409,9 +382,8 @@ public class AppConsola {
         return UsuariMesTallers;
 
     }
-    private static void menu10(LlistaTallers llistaTallers){
+    private static void menu10(LlistaActivitats llistaTallers){
 
-        Scanner teclat = new Scanner(System.in);
         String coditaller;
         int MitjaTaller;
         int placesocupades;
@@ -425,10 +397,8 @@ public class AppConsola {
         else {
             System.out.println("No es possible calcular la nota mitja ja que no s'ha fet cap reserva.");
         }
-      
-
     }
-    private static void menu14(LlistaTallers llistaTallers){
+    private static void menu14(LlistaActivitats llistaTallers){
         Scanner teclat = new Scanner(System.in);
         try {
             String codiTaller;
@@ -444,10 +414,10 @@ public class AppConsola {
         } catch (NullPointerException e) {
             System.out.println("El taller amb aquest codi no es troba en la llista.");
         } 
+        teclat.close();
     }
 
     private static void afegirActivitat(LlistaActivitats llistaActivitats) {
-        Scanner teclat = new Scanner(System.in);
         System.out.println("Introdueixi el nom de l'activitat:");
         String nom = teclat.nextLine();
         System.out.println("Introdueixi el lloc de l'activitat:");
@@ -464,10 +434,11 @@ public class AppConsola {
         if(tipus.equalsIgnoreCase("Taller")){
             System.out.println("Introdueixi la durada del taller:");
             int durada = teclat.nextInt();
+            teclat.nextLine();
             System.out.println("Introdueixi la capacitat del taller:");
             int capacitat = teclat.nextInt();
+            teclat.nextLine();
             Tallers taller = new Tallers(nom,lloc,codiPostal,data,nomEntitat2,durada,capacitat);
-            llistaActivitats.afegirActivitat(taller);
             llistaActivitats.afegirActivitat(taller);
         }else if(tipus.equalsIgnoreCase("Visita")){
             System.out.println("Introdueixi el lloc a visitar:");
@@ -483,10 +454,7 @@ public class AppConsola {
             String nomPersona = teclat.nextLine();
             Xerrades xerrada = new Xerrades(nom,lloc,codiPostal,data,nomEntitat2,nomPersona);
             llistaActivitats.afegirActivitat(xerrada); 
-            }   
-
-            teclat.close();
-
+        }   
     }
     
 

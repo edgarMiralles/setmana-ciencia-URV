@@ -9,22 +9,22 @@ Gerard;SFO;86420;2022-09-18;Singapore Airlines;Alba
 Laia;ICN;15937;2022-10-22;Qatar Airways;Hugo
 Sergi;DXB;35791;2022-11-09;Etihad Airways;Aina
 Taller1;Tarragona;43431;2022-01-03;URV;3;300
-Taller2;Barcelona;08001;2022-02-15;UPC;2;150
+Taller2;Barcelona;8001;2022-02-15;UPC;2;150
 Taller3;Girona;17001;2022-03-10;UdG;5;200
 Taller4;Lleida;25001;2022-04-22;UdL;4;250
 Taller5;Tarragona;43431;2022-05-08;URV;6;180
-Taller6;Barcelona;08001;2022-06-12;UPC;3;220
+Taller6;Barcelona;8001;2022-06-12;UPC;3;220
 Taller7;Girona;17001;2022-07-19;UdG;7;270
 Taller8;Lleida;25001;2022-08-25;UdL;2;190
 Taller9;Tarragona;43431;2022-09-30;URV;4;210
-Taller10;Barcelona;08001;2022-10-18;UPC;5;230
-Visita1;Tarragona;43431;2022-01-03;Tarragona;Serveis;Cosina;true
-Visita2;Barcelona;08001;2022-02-15;Barcelona Zoo;Serveis;Guia;false
-Visita3;Girona;17001;2022-03-20;Catedral de Girona;Serveis;Audioguia;true
-Visita4;Lleida;25001;2022-04-10;Museu de Lleida;Serveis;Guia;true
-Visita5;Reus;43201;2022-05-05;Gaudí Centre Reus;Serveis;Audioguia;false
-Visita6;Salou;43840;2022-06-12;PortAventura Park;Serveis;Guia;true
-Visita7;Tarragona;43431;2022-07-08;Amfiteatre Romà;Serveis;Audioguia;false
-Visita8;Lleida;25001;2022-08-21;Catedral Nova de Lleida;Serveis;Guia;true
-Visita9;Barcelona;08001;2022-09-17;Sagrada Família;Serveis;Audioguia;false
-Visita10;Girona;17001;2022-10-30;Barri Vell;Serveis;Guia;true
+Taller10;Barcelona;8001;2022-10-18;UPC;5;230
+Visita1;Tarragona;43431;2022-01-03;Serveis;Cosina;true
+Visita2;Barcelona;8001;2022-02-15;Serveis;Guia;false
+Visita3;Girona;17001;2022-03-20;Serveis;Audioguia;true
+Visita4;Lleida;25001;2022-04-10;Serveis;Guia;true
+Visita5;Reus;43201;2022-05-05;Serveis;Audioguia;false
+Visita6;Salou;43840;2022-06-12;Serveis;Guia;true
+Visita7;Tarragona;43431;2022-07-08;Serveis;Audioguia;false
+Visita8;Lleida;25001;2022-08-21;Serveis;Guia;true
+Visita9;Barcelona;8001;2022-09-17;Serveis;Audioguia;false
+Visita10;Girona;17001;2022-10-30;Serveis;Guia;true
